@@ -10,8 +10,8 @@ humandate: "Oct 17, 2018"
 humantime: "9:00 am - 5:00 pm"
 startdate: 2018-10-17
 enddate: 2018-10-17
-instructor: ["Jethro Johnson", "Pariksheet Nanda", "Sue McClatchy"]
-helper: ["FIXME"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+instructor: ["Jethro Johnson", "Pariksheet Nanda"]
+helper: ["Anne Deslattes Mays", "Sue McClatchy"]
 email: ["susan.mcclatchy@jax.org"]
 collaborative_notes:             # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document
 eventbrite: 49898633155

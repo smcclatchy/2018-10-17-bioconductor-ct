@@ -68,13 +68,9 @@ eventbrite: 49898633155
   Explain who your audience is.  (In particular, tell readers if the
   workshop is only open to people from a particular institution.
 {% endcomment %}
-{% if page.carpentry == "swc" %}
-  {% include sc/who.html %}
-{% elsif page.carpentry == "dc" %}
-  {% include dc/who.html %}
-{% elsif page.carpentry == "lc" %}
-  {% include lc/who.html %}
-{% endif %}
+This workshop is open to those who have met the prerequisite by taking a 2-day R workshop or otherwise being competent in R.
+The workshop is open to those at the Jackson Laboratory and neighboring institutions.
+
 
 {% comment %}
   LOCATION
@@ -184,16 +180,8 @@ eventbrite: 49898633155
 {% endcomment %}
 <h2 id="surveys">Surveys</h2>
 <p>Please be sure to complete these surveys before and after the workshop.</p>
-{% if site.carpentry == "swc" %} 
-<p><a href="{{ site.swc_pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
-<p><a href="{{ site.swc_post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
-{% elsif site.carpentry == "dc" %}
-<p><a href="{{ site.dc_pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
-<p><a href="{{ site.dc_post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
-{% elsif site.carpentry == "lc" %}
-<p><a href="{{ site.lc_pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
-<p><a href="{{ site.lc_post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
-{% endif %}
+<p><a href="https://www.surveymonkey.com/r/8CZHFDF">Pre-workshop Survey</a></p>
+<p><a href="https://www.surveymonkey.com/r/8JN5DK9">Post-workshop Survey</a></p>
 
 <hr/>
 
@@ -244,13 +232,14 @@ eventbrite: 49898633155
 {% endcomment %}
 <h2 id="syllabus">Syllabus</h2>
 
-{% if page.carpentry == "swc" %}
-  {% include sc/syllabus.html %}
-{% elsif page.carpentry == "dc" %}
-  {% include dc/syllabus.html %}
-{% elsif page.carpentry == "lc" %}
-  {% include lc/syllabus.html %}
-{% endif %}
+1. Find, install, and learn how to use Bioconductor packages
+2. Import and manipulate genomic files and Bioconductor data objects
+3. Visually assess quality of RNA-seq data
+4. Perform basic differential analysis of RNA-seq data
+5. Understand how to apply the GenomicRanges infrastructure to real-world problems
+6. Gain insight into the design principles of the GenomicRanges infrastructure and how it was meant to be used
+7. Learn about various annotation package and public data resources
+<a href="https://bioconductor.github.io/BiocWorkshops/">Reference...</a>
 
 <hr/>
 
@@ -337,3 +326,80 @@ eventbrite: 49898633155
     </div>
   </div>
 </div> {% comment %} End of 'R' section. {% endcomment %}
+
+<div id="Bioconductor"> {% comment %} Start of 'Bioconductor' section. {% endcomment %}
+<h3>Bioconductor</h3>
+<p>
+<a href="https://www.bioconductor.org/">Bioconductor</a> provides
+tools for the analysis and comprehension of high-throughput
+genomic data. Bioconductor uses the R statistical programming
+language, and is open source and open development.
+The current release of Bioconductor is version 3.7; it works with R version 3.5.0.
+Users of older R and Bioconductor must update their installation to take
+advantage of new features and to access packages that have been added to
+Bioconductor since the last release.
+</p>
+<div class="row">
+<div class="col-md-4">
+<h4 id="packages">Packages</h4>
+<p>
+Packages available in Bioconductor are summarized at https://bioconductor.org/packages.
+The widget on the left summarizes four distinct types of Bioconductor packages:
+1) software, 2) annotation, 3) experiment data, and 4) workflow.
+Like CRAN (R) packages, Bioconductor packages need to be installed only once per R installation,
+and then attached to each session where they are going to be used. Bioconductor packages are installed
+slightly differently from CRAN packages. The first step is to install the <code>BiocManager</code> package from CRAN.
+Open RStudio, then copy and paste the following code into the console:
+</p>
+
+<pre><code>if (!"BiocManager" %in% rownames(installed.packages()))
+install.packages("BiocManager", repos="https://cran.r-project.org")</code></pre>
+The next step is to install the desired Bioconductor packages.
+The syntax to install the <code>rtracklayer</code>, <code>GenomicRanges</code>, <code>SummarizedExperiment</code>,
+and <code>DESeq2</code> packages is
+
+<pre><code>BiocManager::install(c("rtracklayer", "GenomicRanges", "SummarizedExperiment", "DESeq2"))</code></pre>
+
+A convenient function in <code>BiocManager</code> is <code>available()</code>, which accepts a regular expression to find matching packages. The following finds all <code>TxDb</code> packages (describing exon, transcript, and gene coordinates).
+
+<pre><code>BiocManager::available("TxDb")</code></pre>
+
+Use the <code>BiocManager::install()</code> function above to install UCSC known genes for human hg38 and mouse mm10.
+
+<pre><code>BiocManager::install(c("TxDb.Hsapiens.UCSC.hg38.knownGene", "TxDb.Mmusculus.UCSC.mm10.knownGene"))</code></pre>
+
+Bioconductor packages tend to depend on one another quite alot,
+so it is important that the correct versions of all packages are installed.
+Validate your installation with
+<pre><code>BiocManager::valid()</code></pre>
+</div>
+<div class="col-md-4">
+<h4>Project organization</h4>
+<ol>
+<li>Make a new folder in your Desktop called <code>bioconductor</code>.</li>
+<li>Move into this new folder.</li>
+<li>Create  a <code>data</code> folder to hold the data, a <code>scripts</code> folder to house your scripts, and a <code>results</code> folder to hold results.</li>
+</ol>
+Alternatively, you can use the R console to run the following commands for steps 1-3.
+<pre><code>
+setwd("~/Desktop")
+dir.create("./bioconductor")
+setwd("~/Desktop/bioconductor")
+dir.create("./data")
+dir.create("./scripts")
+dir.create("./results")</code></pre>
+</div>
+<div class="col-md-4">
+<h4>Data</h4>
+<p>
+Please download the following large files <b>before the workshop</b>, and place them in your <code>data</code> folder. You can download the files from the URLs below and move the files the same way that you would for downloading and moving any other kind of data.
+<ul>
+<li><a href="https://raw.githubusercontent.com/smcclatchy/2018-10-12-bioconductor-bh/gh-pages/data/100_Morgan_RBiocForAll/CpGislands.Hsapiens.hg38.UCSC.bed">human CPG islands BED file</a> (977 KB)</li>
+<li><a href="https://raw.githubusercontent.com/smcclatchy/2018-10-12-bioconductor-bh/gh-pages/data/100_Morgan_RBiocForAll/CpGislands.Mmusculus.mm10.UCSC.bed">mouse CPG islands BED file</a> (502 KB)</li>
+<li><a href="https://raw.githubusercontent.com/smcclatchy/2018-10-12-bioconductor-bh/gh-pages/data/100_Morgan_RBiocForAll/airway_colData.csv">airway experimental data</a> (941 B)</li>
+<li><a href="https://raw.githubusercontent.com/smcclatchy/2018-10-12-bioconductor-bh/gh-pages/data/100_Morgan_RBiocForAll/airway_counts.csv">airway counts data</a> (1.32 MB)</li>
+</ul>
+</p>
+</div>
+</div> {% comment %} End of 'Bioconductor' section. {% endcomment %}
+

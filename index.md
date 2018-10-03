@@ -1,7 +1,7 @@
 ---
 layout: workshop      # DON'T CHANGE THIS.
 carpentry: ""
-venue: "Bioconductor for RNA Sequence Analysis at The Jackson Laboratory for Genomic Medicine"
+venue: "Bioconductor for RNA Sequence Analysis at                   The Jackson Laboratory for Genomic Medicine"
 address: "Holt Conference Room, 10 Discovery Drive, Farmington, Connecticut"
 country: "us"
 language: "en"

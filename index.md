@@ -239,7 +239,7 @@ The workshop is open to those at the Jackson Laboratory and neighboring institut
 5. Understand how to apply the GenomicRanges infrastructure to real-world problems
 6. Gain insight into the design principles of the GenomicRanges infrastructure and how it was meant to be used
 7. Learn about various annotation package and public data resources
-<a href="https://bioconductor.github.io/BiocWorkshops/">Reference...</a>
+<p><a href="https://bioconductor.github.io/BiocWorkshops/">Reference...</a></p>
 
 <hr/>
 
@@ -358,7 +358,7 @@ The next step is to install the desired Bioconductor packages.
 The syntax to install the <code>rtracklayer</code>, <code>GenomicRanges</code>, <code>SummarizedExperiment</code>,
 and <code>DESeq2</code> packages is
 
-<pre><code>BiocManager::install(c("rtracklayer", "GenomicRanges", "SummarizedExperiment", "DESeq2"))</code></pre>
+<pre><code>BiocManager::install(c("rtracklayer", "GenomicRanges", "SummarizedExperiment", "DESeq2", "tximport", "tximportData", "airway", "apeglm", "AnnotationHub", "ReportingTools", "Glimma", "splatter", "zinbwave"))</code></pre>
 
 A convenient function in <code>BiocManager</code> is <code>available()</code>, which accepts a regular expression to find matching packages. The following finds all <code>TxDb</code> packages (describing exon, transcript, and gene coordinates).
 
@@ -392,7 +392,7 @@ dir.create("./results")</code></pre>
 <div class="col-md-4">
 <h4>Data</h4>
 <p>
-Please download the following large files <b>before the workshop</b>, and place them in your <code>data</code> folder. You can download the files from the URLs below and move the files the same way that you would for downloading and moving any other kind of data.
+Please download the following large files <b>before the workshop</b>, and place them in your <code>data</code> folder. You can download the files from the URLs below and move the files the same way that you would for downloading and moving any other kind of file.
 <ul>
 <li><a href="https://raw.githubusercontent.com/smcclatchy/2018-10-12-bioconductor-bh/gh-pages/data/100_Morgan_RBiocForAll/CpGislands.Hsapiens.hg38.UCSC.bed">human CPG islands BED file</a> (977 KB)</li>
 <li><a href="https://raw.githubusercontent.com/smcclatchy/2018-10-12-bioconductor-bh/gh-pages/data/100_Morgan_RBiocForAll/CpGislands.Mmusculus.mm10.UCSC.bed">mouse CPG islands BED file</a> (502 KB)</li>

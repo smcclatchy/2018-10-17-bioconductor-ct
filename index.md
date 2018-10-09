@@ -358,7 +358,7 @@ The next step is to install the desired Bioconductor packages.
 The syntax to install the <code>rtracklayer</code>, <code>GenomicRanges</code>, <code>SummarizedExperiment</code>,
 and <code>DESeq2</code> packages is
 
-<pre><code>BiocManager::install(c("rtracklayer", "GenomicRanges", "SummarizedExperiment", "DESeq2", "tximport", "tximportData", "airway", "apeglm", "AnnotationHub", "ReportingTools", "Glimma", "splatter", "zinbwave"))</code></pre>
+<pre><code>BiocManager::install(c("rtracklayer", "GenomicRanges", "SummarizedExperiment", "DESeq2", "tximportData", "airway", "apeglm", "AnnotationHub", "ReportingTools", "Glimma", "splatter"))</code></pre>
 
 A convenient function in <code>BiocManager</code> is <code>available()</code>, which accepts a regular expression to find matching packages. The following finds all <code>TxDb</code> packages (describing exon, transcript, and gene coordinates).
 
